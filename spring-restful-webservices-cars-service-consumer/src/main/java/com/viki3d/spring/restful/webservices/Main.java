@@ -50,8 +50,13 @@ public class Main {
     // variables are not considered to be constants, and should not be styled as constants.
     final String url = "http://localhost:8080/api/v1/cars/1";
     return args -> {
-      Car car = restTemplate.getForObject(url, Car.class);
-      logger.debug(car.toString());
+      try {
+        Car car = restTemplate.getForObject(url, Car.class);
+        logger.debug(car.toString());
+      } catch (Exception ex) {
+        logger.error(ex.getMessage());
+        logger.error("Check if [cars-service] is running!");
+      }
     };
   }  
   

@@ -53,7 +53,8 @@ public class CarServiceConsumerRestController {
       logger.error(ex.getMessage());
     }
     Car car = response.getBody();
-    logger.debug("Consumed: " + car.toString());
+    // Consumed -> car:[id = 1, brand = Mazda, model = 6, color = red]
+    logger.debug("Consumed -> " + car.toString());
     return car.toString();
   }
   
