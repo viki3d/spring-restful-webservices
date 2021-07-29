@@ -2,4 +2,5 @@
 Java, Spring, RESTful Web Services
 
 ## Consuming a RESTful webserice
-![Consuming 1](spring-restful-webservices.png)
+![Consuming a RESTful webserice](/spring-restful-webservices.png "Consuming a RESTful webserice")  
+
