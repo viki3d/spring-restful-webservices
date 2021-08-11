@@ -1,6 +1,7 @@
 package com.viki3d.spring.restful.webservices.front.controllers.rest;
 
 import com.viki3d.spring.restful.webservices.front.api.model.Car;
+import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,19 @@ public class CarServiceConsumerRestController {
     // Consumed -> car:[id = 1, brand = Mazda, model = 6, color = red]
     logger.debug("Consumed -> " + car.toString());
     return car.toString();
+  }
+  
+  /**
+   * Consumes REST array.
+   *
+   * <p><a href="http://localhost:8081/arr">test link</a></p>
+   */
+  @GetMapping("/arr")
+  public String consumeArray() {
+    ResponseEntity<Car[]> response = null;
+    response = this.restTemplate.getForEntity("http://localhost:8080/api/v1/cars", Car[].class);
+    Car[] cars = response.getBody();
+    return Arrays.toString(cars);
   }
   
 }
